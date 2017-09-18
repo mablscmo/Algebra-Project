@@ -15,11 +15,13 @@ class gtrans:
         self.yvec=array([[t],[y]])
         
     def __repr__(self):
-        return'{}'.format(self.coordvec)
+        return '{}'.format(self.coordvec)
     
     def transf(self,other):
-        xtransmat=array([[1,0],[other[0],1]])
-        ytransmat=array([[1,0],[other[1],1]])
-        transdmat=array([[dot(self.xvec,xtransmat)],[dot(self.yvec,ytransmat)]])
-        return(transdmat)
+        xtransmat=array([[1,0],[-other.coordvec[0,0],1]])
+        ytransmat=array([[1,0],[-other.coordvec[1,0],1]])
+        x=dot(xtransmat,self.xvec)
+        y=dot(ytransmat,self.yvec)
+        return(array([[x[1,0]],[y[1,0]]]))
+    
     
