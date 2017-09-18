@@ -15,7 +15,7 @@ class gtrans:
         self.yvec=array([[t],[y]])
         
     def __repr__(self):
-        print(self.coordvec)
+        return'{}'.format(self.coordvec)
     
     def transf(self,other):
         xtransmat=array([[1,0],[other[0],1]])
