@@ -30,12 +30,19 @@ class FourVector:
 
         
     def MinkProd(self, other):
+        if not isinstance(other,(ndarray,tuple,list,FourVector)):
+            raise TypeError('Input must be array, tuple, list, or Fourvector')
         if isinstance(other, ndarray):
             other.shape=(1,4)
             other.t=other[0]
             other.x=other[1]
             other.y=other[2]
-            other.z=other[3]        
+            other.z=other[3]
+        if isinstance(other,tuple,list):
+            other.t=other[0]
+            other.x=other[1]
+            other.y=other[2]
+            other.z=other[3]
         return(-self.t*other.t+self.x*other.x+self.y*other.y+self.z*other.z)
   
     def trans(self, xv):
