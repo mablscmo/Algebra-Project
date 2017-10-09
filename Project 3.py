@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Oct  9 11:58:04 2017
-@author: monte
+Created on Mon Oct  9 12:01:33 2017
+
+@author: tina-
 """
 from scipy import *
 from pylab import *
-import sys    
+import sys 
 
 class FourVector:
     def __init__(self,txyz):
@@ -48,4 +49,21 @@ class FourVector:
     def trans(self, xv):
         g=1/sqrt(1-xv**2)
         transm=array([[g,-xv*g,0,0],[-xv*g,g,0,0],[0,0,1,0],[0,0,0,1]])
-        return(transm.dot(self.coordvec))
+        return(FourVector(transm.dot(self.coordvec)))
+    
+    def ptrans(self, xv):
+        g=1/sqrt(1-xv**2)
+        transm=array([[g,-xv*g,0,0],[-xv*g,g,0,0],[0,0,1,0],[0,0,0,1]])
+        a=array([[self.t,0,0,0]])
+        a.shape=(4,1)
+        return(FourVector(transm.dot(a)))
+    
+x=linspace(0,1,5000,endpoint=False)
+y=[]
+t0=FourVector((1,0,0,0))
+for i in x:
+    y.append(t0.ptrans(i).t)
+        
+plot(x,y)    
+
+    
