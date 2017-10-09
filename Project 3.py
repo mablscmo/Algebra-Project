@@ -27,3 +27,7 @@ class FourVector:
             other.z=other[3]        
         return(-self.t*other.t+self.x*other.x+self.y*other.y+self.z*other.z)
   
+    def trans(self, xv):
+        j=1/sqrt(1-xv**2)
+    
+        transm=([j,-xv*j,0,0],[-xv*j,j,0,0],[0,0,1,0],[0,0,0,1])
