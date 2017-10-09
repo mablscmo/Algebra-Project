@@ -7,4 +7,5 @@ from scipy import *
 from pylab import *
 import sys    
 
-
+class FourVector:
+  
