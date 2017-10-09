@@ -8,12 +8,16 @@ from pylab import *
 import sys    
 
 class FourVector:
-    def __init__(self, t, x, y, z):
+    def __init__(self,t,x,y,z):
         self.t=t
         self.x=x
         self.y=y
         self.z=z
+        self.coordvec=array([[self.t],[self.x],[self.y],[self.z]])
         
-  def MinkProd(self, other):
-    return(-self.t*other.t+self.x*other.x+self.y*other.y+self.z*other.z)
+    def __repr__(self):
+        return'{}'.format(array([[self.t],[self.x],[self.y],[self.z]]))        
+        
+    def MinkProd(self, other):
+        return(-self.t*other.t+self.x*other.x+self.y*other.y+self.z*other.z)
   
