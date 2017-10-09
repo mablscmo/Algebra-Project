@@ -48,4 +48,5 @@ class FourVector:
     def trans(self, xv):
         j=1/sqrt(1-xv**2)
     
-        transm=([j,-xv*j,0,0],[-xv*j,j,0,0],[0,0,1,0],[0,0,0,1])
+        transm=array([[j,-xv*j,0,0],[-xv*j,j,0,0],[0,0,1,0],[0,0,0,1]])
+        return(transm.dot(self.coordvec))
