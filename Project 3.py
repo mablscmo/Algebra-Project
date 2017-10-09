@@ -19,5 +19,11 @@ class FourVector:
         return'{}'.format(array([[self.t],[self.x],[self.y],[self.z]]))        
         
     def MinkProd(self, other):
+        if isinstance(other, ndarray):
+            other.shape=(1,4)
+            other.t=other[0]
+            other.x=other[1]
+            other.y=other[2]
+            other.z=other[3]        
         return(-self.t*other.t+self.x*other.x+self.y*other.y+self.z*other.z)
   
