@@ -114,7 +114,7 @@ class VelocityVector:
         
     def veltrans(self,ux):
         gamma=sqrt(1-ux**2)
-        vxp=(self.vx-ux)/(1-vx*ux)
+        vxp=(self.vx-ux)/(1-self.vx*ux)
         vyp=self.vy/(gamma*(1-self.vy*ux))
         vzp=self.vz/(gamma*(1-self.vz*ux))
         return(VelocityVector((vxp,vyp,vzp)))
