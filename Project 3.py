@@ -86,14 +86,14 @@ class VelocityVector:
     def __repr__(self):
         return '{}'.format(self.coordvec)
         
-    def veltrans(self,vx):
-        return 'not ready'
-           
-xv=
-yv=
-zv=
-gamma=1/sqrt(1-(xv**2+yv**2+zv**2))
+    def veltrans(self,vx,vy=0,vz=0):
+        gamma=1/sqrt(1-(vx**2+vy**2+vz**2))
+        transvm=array([[gamma,-vx*gamma,-vy*gamma,-vz*gamma],[-vx*gamma,(gamma-1)vx**2/(vx**2+vy**2+vz**2)+1,-vx*gamma,(gamma-1)vx*vy/(vx**2+vy**2+vz**2),-vx*gamma,(gamma-1)vx*vz/(vx**2+vy**2+vz**2)],[-vy*gamma,(gamma-1)vy*vx/(vx**2+vy**2+vz**2),(gamma-1)vy**2/(vx**2+vy**2+vz**2)+1,(gamma-1)vy*vz/(vx**2+vy**2+vz**2)],[-vz*gamma,(gamma-1)vz*vx/(vx**2+vy**2+vz**2),(gamma-1)vz*vy/(vx**2+vy**2+vz**2),(gamma-1)vz**2/(vx**2+vy**2+vz**2)+1]) 
+        return
+    
+vx=
+vy=
+vz=
+gamma=1/sqrt(1-(vx**2+vy**2+vz**2))
 
-transvm=array([[gamma,-xv*gamma,-yv*gamma,-zv*gamma],[-xv*gamma,(gamma-1)xv**2/(xv**2+yv**2+zv**2)+1,-xv*gamma,(gamma-1)xv*yv/(xv**2+yv**2+zv**2),-xv*gamma,(gamma-1)xv*zv/(xv**2+yv**2+zv**2)],[-yv*gamma,(gamma-1)yv*xv/(xv**2+yv**2+zv**2),(gamma-1)yv**2/(xv**2+yv**2+zv**2)+1,(gamma-1)yv*zv/(xv**2+yv**2+zv**2)],[-zv*gamma,(gamma-1)zv*xv/(xv**2+yv**2+zv**2),(gamma-1)zv*yv/(xv**2+yv**2+zv**2),(gamma-1)zv**2/(xv**2+yv**2+zv**2)+1])      
-        
-        
+transvm=array([[gamma,-vx*gamma,-vy*gamma,-vz*gamma],[-vx*gamma,(gamma-1)vx**2/(vx**2+vy**2+vz**2)+1,-vx*gamma,(gamma-1)vx*vy/(vx**2+vy**2+vz**2),-vx*gamma,(gamma-1)vx*vz/(vx**2+vy**2+vz**2)],[-vy*gamma,(gamma-1)vy*vx/(vx**2+vy**2+vz**2),(gamma-1)vy**2/(vx**2+vy**2+vz**2)+1,(gamma-1)vy*vz/(vx**2+vy**2+vz**2)],[-vz*gamma,(gamma-1)vz*vx/(vx**2+vy**2+vz**2),(gamma-1)vz*vy/(vx**2+vy**2+vz**2),(gamma-1)vz**2/(vx**2+vy**2+vz**2)+1])    
