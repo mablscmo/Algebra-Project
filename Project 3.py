@@ -119,3 +119,19 @@ class VelocityVector:
         vzp=self.vz/(gamma*(1-self.vz*ux))
         return(VelocityVector((vxp,vyp,vzp)))
     
+
+
+def angplot(angles,vstart,vend=False,vpoints=1000):
+    if not vend==False:
+        vlist=linspace(vstart,vend,vpoints)
+    elif isinstance(vstart,(tuple,list,array)):
+        vlist=vstart
+        if isinstance(v,ndarray):
+            vlist.shape=(1,)
+    else:
+        raise TypeError('If no endpoint for velocities are given, the velocities must be given as either array,tuple, or list')
+    for theta in angles:
+        anglist=[]
+        #perform transformation, obtain new angle, append in ylist
+        plot(vlist,anglist)
+        
