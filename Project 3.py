@@ -88,7 +88,12 @@ class VelocityVector:
         
     def veltrans(self,vx):
         return 'not ready'
-            
-        
+           
+xv=
+yv=
+zv=
+gamma=1/sqrt(1-(xv**2+yv**2+zv**2))
+
+transvm=array([[gamma,-xv*gamma,-yv*gamma,-zv*gamma],[-xv*gamma,(gamma-1)xv**2/(xv**2+yv**2+zv**2)+1,-xv*gamma,(gamma-1)xv*yv/(xv**2+yv**2+zv**2),-xv*gamma,(gamma-1)xv*zv/(xv**2+yv**2+zv**2)],[-yv*gamma,(gamma-1)yv*xv/(xv**2+yv**2+zv**2),(gamma-1)yv**2/(xv**2+yv**2+zv**2)+1,(gamma-1)yv*zv/(xv**2+yv**2+zv**2)],[-zv*gamma,(gamma-1)zv*xv/(xv**2+yv**2+zv**2),(gamma-1)zv*yv/(xv**2+yv**2+zv**2),(gamma-1)zv**2/(xv**2+yv**2+zv**2)+1])      
         
         
