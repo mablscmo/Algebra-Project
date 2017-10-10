@@ -112,8 +112,10 @@ class VelocityVector:
     def __repr__(self):
         return '{}'.format(self.coordvec)
         
-    def veltrans(self,vx):
-        gamma=1/sqrt(1-(vx**2+vy**2+vz**2))
-        transvm=array([[gamma,-vx*gamma,-vy*gamma,-vz*gamma],[-vx*gamma,(gamma-1)vx**2/(vx**2+vy**2+vz**2)+1,-vx*gamma,(gamma-1)vx*vy/(vx**2+vy**2+vz**2),-vx*gamma,(gamma-1)vx*vz/(vx**2+vy**2+vz**2)],[-vy*gamma,(gamma-1)vy*vx/(vx**2+vy**2+vz**2),(gamma-1)vy**2/(vx**2+vy**2+vz**2)+1,(gamma-1)vy*vz/(vx**2+vy**2+vz**2)],[-vz*gamma,(gamma-1)vz*vx/(vx**2+vy**2+vz**2),(gamma-1)vz*vy/(vx**2+vy**2+vz**2),(gamma-1)vz**2/(vx**2+vy**2+vz**2)+1]) 
-        return
+    def veltrans(self,ux):
+        gamma=sqrt(1-ux**2)
+        vxp=(self.vx-ux)/(1-vx*ux)
+        vyp=self.vy/(gamma*(1-self.vy*ux))
+        vzp=self.vz/(gamma*(1-self.vz*ux))
+        return(VelocityVector((vxp,vyp,vzp)))
     
