@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Oct  9 12:01:33 2017
-
 @author: tina-
 """
 from scipy import *
@@ -58,13 +57,13 @@ class FourVector:
         a.shape=(4,1)
         return(FourVector(transm.dot(a)))
     
-x=linspace(0,1,5000,endpoint=False)
-y=[]
-t0=FourVector((1,0,0,0))
-for i in x:
-    y.append(t0.ptrans(i).t)
+#x=linspace(0,1,5000,endpoint=False)
+#y=[]
+#t0=FourVector((1,0,0,0))
+#for i in x:
+#    y.append(t0.ptrans(i).t)
         
-plot(x,y)    
+#plot(x,y)    
 
 
 class VelocityVector:
@@ -84,8 +83,12 @@ class VelocityVector:
         else:
             raise TypeError('Input must be array, tuple, or list')
             
-        def __repr__(self):
-            return'{}'.format(self.coordvec)  
+    def __repr__(self):
+        return '{}'.format(self.coordvec)
+        
+    def veltrans(self,vx):
+        return 'not ready'
             
-        def veltrans(self,vx):
-            
+        
+        
+        
