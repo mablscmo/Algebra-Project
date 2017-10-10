@@ -57,8 +57,15 @@ class FourVector:
         a.shape=(4,1)
         return(FourVector(transm.dot(a)))
     
-def vtplot(tstart,tend,numtime=False,numpoints=1000):
-    if numtime==False:
+def vtplot(tstart,tend=False,numtime=False,numpoints=1000):
+    if tend==False:
+        x=linspace(0,1,numpoints,endpoint=False)
+        y=[]
+        t0=FourVector((tstart,0,0,0))
+        for i in x:
+            y.append(t0.ptrans(i).t)
+        plot(x,y)
+    elif numtime==False:
         for t in range(tstart,tend+1):
             x=linspace(0,1,numpoints,endpoint=False)
             y=[]
@@ -84,7 +91,6 @@ def vtplot(tstart,tend,numtime=False,numpoints=1000):
                 plot(x,y,'b')
             else:
                 plot(x,y)
-
 
 class VelocityVector:
     def __init__(self,vxyz):
