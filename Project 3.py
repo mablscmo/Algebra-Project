@@ -66,4 +66,26 @@ for i in x:
         
 plot(x,y)    
 
-    
+
+class VelocityVector:
+    def __init__(self,vxyz):
+        if isinstance(vxyz,ndarray):
+            vxyz.shape=(3,1)
+            self.vx=vxyz[0,]
+            self.vy=vxyz[1,]
+            self.vz=vxyz[2,]
+            self.coordvec=vxyz
+        elif isinstance(vxyz,(tuple,list)):
+            self.vx=vxyz[0]
+            self.vy=vxyz[1]
+            self.vz=vxyz[2]
+            self.coordvec=array([vxyz])
+            self.coordvec.shape=(3,1)
+        else:
+            raise TypeError('Input must be array, tuple, or list')
+            
+        def __repr__(self):
+            return'{}'.format(self.coordvec)  
+            
+        def veltrans(self,vx):
+            
