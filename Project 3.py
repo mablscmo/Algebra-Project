@@ -121,17 +121,23 @@ class VelocityVector:
     
 
 
-def angplot(angles,vstart,vend=False,vpoints=1000):
-    if not vend==False:
-        vlist=linspace(vstart,vend,vpoints)
-    elif isinstance(vstart,(tuple,list,array)):
-        vlist=vstart
-        if isinstance(v,ndarray):
-            vlist.shape=(1,)
-    else:
-        raise TypeError('If no endpoint for velocities are given, the velocities must be given as either array,tuple, or list')
-    for theta in angles:
-        anglist=[]
-        #perform transformation, obtain new angle, append in ylist
-        plot(vlist,anglist)
+v=linspace(0,1,10000,endpoint=False)
+a=-1
+for theta in [math.pi/2,math.pi*80/180,math.pi*70/180]:
+    a+=1
+    p=[[],[],[]]
+    pos=FourVector((1,cos(theta),sin(theta),0))
+    for i in range(10000):
+        newpos=pos.trans(-v[i])
+        (x,y)=(newpos.x,newpos.y)
+        newang=arccos(x/(x**2+y**2))*180/pi
+        p[a].append(newang)
+    plot(v,p[a])
+
+
+
+L=[]
+for i in range(10000):
+    L.append(90-arcsin(v[i])*180/pi)
+plot(v,L,'r')
         
